@@ -1,0 +1,57 @@
+properties:
+- name: string_parameter
+  type: string
+  default: 'Default string parameter value'
+- name: number_parameter
+  type: number
+  default: 1
+- name: boolean_parameter
+  type: boolean
+  default: true
+- name: object_parameter
+  type: object
+  default:
+    foo: FOO
+    bar: BAR
+    things:
+    - one
+    - two
+    - three
+    nested:
+      one: apple
+      two: pear
+      count: 3
+- name: step_parameter
+  type: step
+  default:
+    script: echo Default step from step_parameter
+- name: stepList_parameter
+  type: stepList
+  default:
+    - script: echo Default step one from stepList_parameter
+    - script: echo Default step two from stepList_parameter
+# - name: job_parameter
+#   type: job
+# - name: jobList_parameter
+#   type: jobList
+# - name: deployment_parameter
+#   type: deployment
+# - name: deploymentList_parameter
+#   type: deploymentList
+# - name: stage_parameter
+#   type: stage
+# - name: stageList_parameter
+#   type: stageList
+
+trigger: none
+
+jobs:
+- job: list_parameters
+  steps:
+  - bash: |
+      echo String parameter: ${{ parameters.string_parameter }}
+    displayName: Echo string parameter
+
+  - bash: |
+      echo Number parameter: ${{ parameters.number_parameter }}
+    displayName: Echo number parameter
