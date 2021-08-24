@@ -1,4 +1,4 @@
-properties:
+parameters:
 - name: string_parameter
   type: string
   default: 'Default string parameter value'
