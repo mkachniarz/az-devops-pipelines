@@ -19,4 +19,4 @@ jobs:
 
   - template: ../steps/invoke-pipeline.yml
     parameters:
-      pipelineId: $()
+      pipelineId: $(pipelineId)
