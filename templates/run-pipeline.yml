@@ -10,6 +10,7 @@ jobs:
   - checkout: self
 
   - bash: echo $(System.AccessToken) | az devops login
+    displayName: Login to devops
 
   - bash: |
       echo pipelineName: ${{ parameters.pipelineName }} 
