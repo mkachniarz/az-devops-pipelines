@@ -61,7 +61,7 @@ parameters:
       dependsOn: jobList_parameter_two
       strategy:
         runOnce:
-          deploy:            
+          deploy:
             steps:
             - checkout: self
 # - name: deploymentJobList_parameter
