@@ -23,9 +23,9 @@ steps:
     az devops invoke \
     --area pipelines \
     --resource runs \
-    --organization https://dev.azure.com/maciejkachniarz0364/ \
-    --route-parameters project='az devops pipelines' pipelineId=16 \
+    --organization $(System.TeamFoundationCollectionUri) \
+    --route-parameters project='$(System.TeamProject)' pipelineId='${{ parameters.pipelineId }}' \
     --http-method POST \
     --in-file body.json \
     --api-version=6.1-preview
-  displayName: 'Invoke pipeline ${{ parameters.pipelineId }}'
+  displayName: 'Invoke pipeline'
