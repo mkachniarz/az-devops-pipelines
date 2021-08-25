@@ -1,0 +1,12 @@
+{
+    "stagesToSkip": [],
+    "resources": {
+        "repositories": {
+            "self": {
+                "refName": "refs/heads/main"
+            }
+        }
+    },
+    "templateParameters": {},
+    "variables": {}
+}

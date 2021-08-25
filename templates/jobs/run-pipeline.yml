@@ -16,3 +16,10 @@ jobs:
       echo pipelineName: ${{ parameters.pipelineName }} 
     displayName: echo pipelineName
   
+  - template: ../steps/get-pipeline-id-by-name.yml
+    parameters:
+      pipelineName: ${{ parameters.pipelineName }}
+      loggedInToDevops: true
+
+  - bash: |
+      echo pipelineId: $(pipelineId)
