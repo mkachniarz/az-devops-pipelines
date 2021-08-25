@@ -5,9 +5,6 @@ parameters:
   type: boolean
   default: false
 
-variables:
-- group: pat-vq
-
 steps:
 - ${{ if eq(parameters.loggedInToDevops, false) }}:
   - bash: echo $(pat) | az devops login

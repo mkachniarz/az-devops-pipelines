@@ -2,9 +2,6 @@ parameters:
 - name: pipelineName
   type: string
 
-variables:
-- group: pat-vq
-
 jobs:
 - job: run_pipeline
   displayName: 'Run pipeline: "${{ parameters.pipelineName }}"'
