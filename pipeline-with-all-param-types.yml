@@ -41,8 +41,19 @@ parameters:
     steps:
     - script: echo Default step from job_parameter
       displayName: Run step from job parameter
-# - name: jobList_parameter
-#   type: jobList
+- name: jobList_parameter
+  type: jobList
+  default:
+    - job: jobList_parameter_one
+      dependsOn: job_parameter
+      steps:
+      - script: echo Default step from jobList_parameter one
+        displayName: Run step from jobList parameter one
+    - job: jobList_parameter_two
+      dependsOn: jobList_parameter_one
+      steps:
+      - script: echo Default step from jobList_parameter two
+        displayName: Run step from jobList parameter two
 # - name: deployment_parameter
 #   type: deployment
 # - name: deploymentList_parameter
@@ -104,3 +115,6 @@ jobs:
   steps: ${{ parameters.stepList_parameter }}
 
 - ${{ parameters.job_parameter }}
+
+- ${{ each job in parameters.jobList_parameter }}
+  - ${{ job }}
