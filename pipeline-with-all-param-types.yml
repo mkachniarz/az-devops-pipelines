@@ -37,6 +37,7 @@ parameters:
   type: job
   default:
     job: job_parameter
+    dependsOn: stepList_parameter
     steps:
     - script: echo Default step from job_parameter
       displayName: Run step from job parameter
