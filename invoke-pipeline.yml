@@ -1,0 +1,11 @@
+parameters:
+- name: pipelineNameToInvoke
+  displayName: Pipeline name to invoke
+  type: string
+
+trigger: none
+
+jobs:
+- template: templates/run-pipeline.yml
+  parameters:
+    pipelineName: ${{ parameters.pipelineNameToInvoke }}

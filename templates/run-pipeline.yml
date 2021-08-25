@@ -1,0 +1,17 @@
+parameters:
+- name: pipelineName
+  type: string
+
+jobs:
+- job: run-pipeline
+  displayName: Run pipeline ${{ parameters.pipelineName }}
+
+  steps:
+  - checkout: self
+
+  - bash: echo $(System.AccessToken) | az devops login
+
+  - bash: |
+      echo pipelineName: ${{ parameters.pipelineName }} 
+    displayName: echo pipelineName
+  
