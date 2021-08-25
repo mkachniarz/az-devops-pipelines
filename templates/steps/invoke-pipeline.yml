@@ -26,6 +26,6 @@ steps:
     --organization https://dev.azure.com/maciejkachniarz0364/ \
     --route-parameters project='az devops pipelines' pipelineId='16' \
     --http-method POST \
-    --in-file base-body-for-invoke-pipeline-request.json \
+    --in-file $(Build.Repository.LocalPath)/draft-jsons/base-body-for-invoke-pipeline-request.json \
     --api-version=6.1-preview
   displayName: 'Invoke pipeline with pipeline id: ${{ parameters.pipelineId }}'
