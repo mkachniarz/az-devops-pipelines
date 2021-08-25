@@ -11,17 +11,16 @@ steps:
     displayName: Login to devops
 
 - bash: |
-    ls $(Build.Repository.LocalPath)/draft-jsons/
+    $(Build.Repository.LocalPath)/draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
   displayName: ls 
-    # cat ../../draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
 
-# - bash: |
-#     az devops invoke \
-#     --area pipelines \
-#     --resource runs \
-#     --organization $(System.TeamFoundationCollectionUri) \
-#     --route-parameters project='$(System.TeamProject)'' pipelineId=${{ parameters.pipelineId }} \
-#     --http-method POST \
-#     --in-file body.json \
-#     --api-version=6.1-preview
-#   displayName: 'Invoke pipeline with pipeline id: ${{ parameters.pipelineId }}'
+- bash: |
+    az devops invoke \
+    --area pipelines \
+    --resource runs \
+    --organization $(System.TeamFoundationCollectionUri) \
+    --route-parameters project='$(System.TeamProject)'' pipelineId=${{ parameters.pipelineId }} \
+    --http-method POST \
+    --in-file body.json \
+    --api-version=6.1-preview
+  displayName: 'Invoke pipeline with pipeline id: ${{ parameters.pipelineId }}'
