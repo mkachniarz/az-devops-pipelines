@@ -11,9 +11,19 @@ steps:
     displayName: Login to devops
 
 - bash: |
-    az devops invoke --area pipelines --resource pipelines --organization https://dev.azure.com/maciejkachniarz0364/ --route-parameters project='az devops pipelines' --http-method GET --api-version=6.1-preview > pipelines.json
+    az devops invoke \
+    --area pipelines \
+    --resource pipelines \
+    --organization $(System.TeamFoundationCollectionUri) \
+    --route-parameters project='$(System.TeamProject)' \
+    --http-method GET \
+    --api-version=6.1-preview > pipelines.json
   displayName: Get pipelines
 
 - bash: |
     echo "##vso[task.setvariable variable=pipelineId;isOutput=true]$(jq '.value[] | select(.name=="${{ parameters.pipelineName }}")? | .id' < pipelines.json)"
   displayName: Set 'pipelineId' variable
+
+- bash: |
+    echo PipelineId: "$(pipelineId)"
+  displayName: Display pipelineId
