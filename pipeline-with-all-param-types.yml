@@ -57,16 +57,7 @@ parameters:
 - name: deploymentJob_parameter
   type: deployment
   default:
-    - deployment: deployParameter
-      displayName: deploymentJob_parameter
-      pool:
-        vmImage: ubuntu-latest
-      environment: 'DEV'
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - script: echo my first deployment
+    - deployment: deploymentJob_parameter
 # - name: deploymentJobList_parameter
 #   type: deploymentList
 # - name: stage_parameter
