@@ -57,7 +57,8 @@ parameters:
 - name: deploymentJob_parameter
   type: deployment
   default:
-    deployment: deployParameter
+    deployment: deploymentJob_parameter
+    dependsOn: jobList_parameter_two
     strategy:
       runOnce:
         deploy:
@@ -125,4 +126,4 @@ jobs:
 
 - ${{ parameters.jobList_parameter }}
 
-# - ${{ parameters.deploymentJob_parameter }}
+- ${{ parameters.deploymentJob_parameter }}
