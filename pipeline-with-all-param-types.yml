@@ -58,13 +58,14 @@ parameters:
   type: deployment
   default:
     - deployment: deploymentJob_parameter
-      dependsOn: jobList_parameter_two
       environment: DEV
+      dependsOn: []
       strategy:
         runOnce:
-          deploy:
-            steps:
-            - checkout: self
+          deploy:            
+            steps:              
+              - checkout: self
+              - script: pwd
 # - name: deploymentJobList_parameter
 #   type: deploymentList
 # - name: stage_parameter
