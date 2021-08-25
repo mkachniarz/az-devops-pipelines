@@ -60,7 +60,7 @@ jobs:
       echo Boolean parameter: ${{ parameters.boolean_parameter }}
     displayName: Echo boolean parameter
 
-- job: object_parameter
+- job: list_object_parameters
   steps:
   - bash: |
       echo Object parameter foo: ${{ parameters.object_parameter.foo }}
