@@ -63,4 +63,4 @@ jobs:
 - job: object_parameter
   steps:
   - bash: |
-      echo Object parameter foo: ${{ parameters.object_paramater.foo }}
+      echo Object parameter foo: ${{ parameters.object_parameter.foo }}
