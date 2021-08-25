@@ -4,7 +4,7 @@ parameters:
 
 jobs:
 - job: run_pipeline
-  displayName: Run pipeline ${{ parameters.pipelineName }}
+  displayName: 'Run pipeline: "${{ parameters.pipelineName }}"'
 
   steps:
   - checkout: self
@@ -19,7 +19,7 @@ jobs:
   - template: ../steps/get-pipeline-id-by-name.yml
     parameters:
       pipelineName: ${{ parameters.pipelineName }}
-      loggedInToDevops: true
+      loggedInToDevops: false
 
   - bash: |
       echo pipelineId: $(pipelineId)
