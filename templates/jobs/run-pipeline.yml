@@ -19,7 +19,7 @@ jobs:
   - template: ../steps/get-pipeline-id-by-name.yml
     parameters:
       pipelineName: ${{ parameters.pipelineName }}
-      loggedInToDevops: false
+      loggedInToDevops: true
 
   - bash: |
       echo pipelineId: $(pipelineId)
