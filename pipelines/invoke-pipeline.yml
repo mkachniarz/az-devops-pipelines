@@ -6,6 +6,6 @@ parameters:
 trigger: none
 
 jobs:
-- template: templates/jobs/run-pipeline.yml
+- template: ../templates/jobs/run-pipeline.yml
   parameters:
     pipelineName: ${{ parameters.pipelineNameToInvoke }}
