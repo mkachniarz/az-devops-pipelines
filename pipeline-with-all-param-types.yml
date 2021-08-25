@@ -72,8 +72,15 @@ jobs:
         echo Object parameter things: ${{ thing }}
       displayName: Echo param from object list => ${{ thing }}
 
-  - ${{ each nested in parameters.object_parameter.nested }}:
-    - bash: |
-        echo Object parameter nested: ${{ nested }}
-      displayName: Echo nested parameter from object
+  - bash: |
+      echo Object parameter nested one: ${{ parameters.object_parameter.nested.one }}
+    displayName: Echo nested parameter one from object
+
+  - bash: |
+      echo Object parameter nested two: ${{ parameters.object_parameter.nested.two }}
+    displayName: Echo nested parameter two from object
+
+  - bash: |
+      echo Object parameter nested count: ${{ parameters.object_parameter.nested.count }}
+    displayName: Echo nested parameter count from object
     
