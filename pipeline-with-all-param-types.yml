@@ -36,6 +36,7 @@ parameters:
 - name: job_parameter
   type: job
   default:
+    job: job_parameter
     steps:
     - script: echo Default step from job_parameter
       displayName: Run step from job parameter
