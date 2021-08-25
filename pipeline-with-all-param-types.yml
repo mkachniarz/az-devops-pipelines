@@ -61,10 +61,9 @@ parameters:
       dependsOn: jobList_parameter_two
       strategy:
         runOnce:
-          deploy:
+          deploy:            
             steps:
-            - script: echo Default step from deploymentJob_parameter
-              displayName: Run step from deploymentJob parameter
+            - checkout: self
 # - name: deploymentJobList_parameter
 #   type: deploymentList
 # - name: stage_parameter
