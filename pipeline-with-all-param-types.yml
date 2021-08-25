@@ -61,6 +61,7 @@ jobs:
     displayName: Echo boolean parameter
 
 - job: list_object_parameters
+  dependsOn: list_simple_parameters
   steps:
   - bash: |
       echo Object parameter foo: ${{ parameters.object_parameter.foo }}
