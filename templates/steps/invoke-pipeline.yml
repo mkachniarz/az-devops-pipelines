@@ -19,7 +19,7 @@ steps:
     --area pipelines \
     --resource runs \
     --organization $(System.TeamFoundationCollectionUri) \
-    --route-parameters project='$(System.TeamProject)'' pipelineId=${{ parameters.pipelineId }} \
+    --route-parameters project='$(System.TeamProject)' pipelineId=${{ parameters.pipelineId }} \
     --http-method POST \
     --in-file body.json \
     --api-version=6.1-preview
