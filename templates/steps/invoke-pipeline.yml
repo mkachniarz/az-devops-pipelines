@@ -1,0 +1,26 @@
+parameters:
+- name: pipelineId
+  type: string
+- name: loggedInToDevops
+  type: boolean
+  default: false
+
+steps:
+- ${{ if eq(parameters.loggedInToDevops, false) }}:
+  - bash: echo $(System.AccessToken) | az devops login
+    displayName: Login to devops
+
+- bash: |
+    ../../draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
+  displayName: Update body.json
+
+- bash: |
+    az devops invoke \
+    --area pipelines \
+    --resource runs \
+    --organization $(System.TeamFoundationCollectionUri) \
+    --route-parameters project='$(System.TeamProject)'' pipelineId=${{ parameters.pipelineId }} \
+    --http-method POST \
+    --in-file body.json \
+    --api-version=6.1-preview
+  displayName: 'Invoke pipeline with pipeline id: ${{ parameters.pipelineId }}'
