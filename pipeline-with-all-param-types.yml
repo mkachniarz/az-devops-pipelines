@@ -88,4 +88,4 @@ jobs:
     
 - job: step_parameter
   steps:
-  - ${{ paramaters.step_parameter }}
+  - ${{ parameters.step_parameter }}
