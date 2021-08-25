@@ -25,6 +25,7 @@ parameters:
   type: step
   default:
     script: echo Default step from step_parameter
+    displayName: Run step parameter
 - name: stepList_parameter
   type: stepList
   default:
@@ -85,3 +86,6 @@ jobs:
       echo Object parameter nested count: ${{ parameters.object_parameter.nested.count }}
     displayName: Echo nested parameter count from object
     
+- job: step_parameter
+  steps:
+  - ${{ paramaters.step_parameter }}
