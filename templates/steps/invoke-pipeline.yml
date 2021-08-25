@@ -11,7 +11,9 @@ steps:
     displayName: Login to devops
 
 - bash: |
-    ../../draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
+    ls ../../
+    ls ../../draft-jsons/
+    cat ../../draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
   displayName: Update body.json
 
 - bash: |

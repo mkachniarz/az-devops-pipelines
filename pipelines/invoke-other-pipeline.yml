@@ -2,6 +2,7 @@ parameters:
 - name: pipelineNameToInvoke
   displayName: Pipeline name to invoke
   type: string
+  default: pipeline-with-all-param-types
 
 trigger: none
 
