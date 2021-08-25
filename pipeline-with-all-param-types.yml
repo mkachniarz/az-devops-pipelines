@@ -46,7 +46,7 @@ parameters:
 trigger: none
 
 jobs:
-- job: list_parameters
+- job: list_simple_parameters
   steps:
   - bash: |
       echo String parameter: ${{ parameters.string_parameter }}
@@ -55,3 +55,12 @@ jobs:
   - bash: |
       echo Number parameter: ${{ parameters.number_parameter }}
     displayName: Echo number parameter
+
+  - bash: |
+      echo Boolean parameter: ${{ parameters.boolean_parameter }}
+    displayName: Echo boolean parameter
+
+- job: object_parameter
+  steps:
+  - bash: |
+      echo Object parameter foo: ${{ parameters.object_paramater.foo }}
