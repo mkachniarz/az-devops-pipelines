@@ -97,9 +97,23 @@ parameters:
       steps:
       - script: echo Default step from stage_parameter
         displayName: Run step from stage parameter
-# - name: stageList_parameter
-#   type: stageList
-
+- name: stageList_parameter
+  type: stageList
+  default:
+    - stage: stageList_parameter_one
+      dependsOn: stage_parameter
+      jobs:
+      - job: stageList_parameter_one_job
+        steps:
+        - script: echo Default step from stageList_parameter_one
+          displayName: Run step from stage list parameter one
+    - stage: stageList_parameter_two
+      dependsOn: stageList_parameter_one
+      jobs:
+      - job: stageList_parameter_two_job
+        steps:
+        - script: echo Default step from stageList_parameter_two
+          displayName: Run step from stage list parameter two
 trigger: none
 
 stages:
@@ -162,3 +176,5 @@ stages:
   - ${{ parameters.deploymentJobList_parameter }}
 
 - ${{ parameters.stage_parameter }}
+
+- ${{ parameters.stageList_parameter }}
