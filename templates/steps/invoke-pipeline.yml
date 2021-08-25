@@ -29,4 +29,4 @@ steps:
     --http-method POST \
     --in-file body.json \
     --api-version=6.1-preview
-  displayName: 'Invoke pipeline with pipeline id: $(pipelineId)'
+  displayName: 'Invoke pipeline $(pipelineId)'
