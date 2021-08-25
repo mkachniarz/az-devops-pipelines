@@ -87,5 +87,6 @@ jobs:
     displayName: Echo nested parameter count from object
     
 - job: step_parameter
+  dependsOn: list_object_parameters
   steps:
   - ${{ parameters.step_parameter }}
