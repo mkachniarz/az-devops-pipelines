@@ -65,6 +65,7 @@ parameters:
         deploy:
           steps:
           - script: echo Default step from deploymentJob_parameter
+            displayName: Run step from deployment job parameter
 - name: deploymentJobList_parameter
   type: deploymentList
   default:
@@ -76,6 +77,7 @@ parameters:
           deploy:
             steps:
             - script: echo Default step from deploymentJobList_parameter one
+              displayName: Run step from deployment job list parameter one
     - deployment: deploymentJobList_parameter_two
       dependsOn: deploymentJobList_parameter_one
       environment: DEV
@@ -84,6 +86,7 @@ parameters:
           deploy:
             steps:
             - script: echo Default step from deploymentJobList_parameter two
+              displayName: Run step from deployment job list parameter two
 # - name: stage_parameter
 #   type: stage
 # - name: stageList_parameter
