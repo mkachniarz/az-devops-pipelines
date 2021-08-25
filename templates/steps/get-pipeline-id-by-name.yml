@@ -21,9 +21,9 @@ steps:
   displayName: Get pipelines
 
 - bash: |
-    echo "##vso[task.setvariable variable=pipelineId;isOutput=true]$(jq '.value[] | select(.name=="${{ parameters.pipelineName }}")? | .id' < pipelines.json)"
+    echo "##vso[task.setvariable variable=pipelineId]$(jq '.value[] | select(.name=="${{ parameters.pipelineName }}")? | .id' < pipelines.json)"
   displayName: Set 'pipelineId' variable
 
 - bash: |
-    echo PipelineId: "$(pipelineId)"
+    echo PipelineId: $(pipelineId)
   displayName: Display pipelineId
