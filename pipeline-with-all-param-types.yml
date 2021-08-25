@@ -59,6 +59,7 @@ parameters:
   default:
     - deployment: deploymentJob_parameter
       dependsOn: jobList_parameter_two
+      environment: DEV
       strategy:
         runOnce:
           deploy:
