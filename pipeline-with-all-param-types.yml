@@ -65,7 +65,9 @@ jobs:
   - bash: |
       echo Object parameter foo: ${{ parameters.object_parameter.foo }}
       echo Object parameter bar: ${{ parameters.object_parameter.bar }}
+    displayName: Echo simple params from object paramater
   
   - ${{ each thing in parameters.object_parameter.things }}:
     - bash: |
         echo Object parameter things: ${{ thing }}
+      displayName: Echo param from object list => ${{ thing }}
