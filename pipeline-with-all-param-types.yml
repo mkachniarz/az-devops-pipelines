@@ -71,3 +71,9 @@ jobs:
     - bash: |
         echo Object parameter things: ${{ thing }}
       displayName: Echo param from object list => ${{ thing }}
+
+  - ${{ each nested in parameters.object_parameter.nested }}:
+    - bash: |
+        echo Object parameter nested: ${{ nested }}
+      displayName: Echo nested parameter from object
+    
