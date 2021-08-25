@@ -108,12 +108,13 @@ parameters:
         - script: echo Default step from stageList_parameter_one
           displayName: Run step from stage list parameter one
     - stage: stageList_parameter_two
-      dependsOn: stageList_parameter_one
+      dependsOn: stage_parameter
       jobs:
       - job: stageList_parameter_two_job
         steps:
         - script: echo Default step from stageList_parameter_two
           displayName: Run step from stage list parameter two
+
 trigger: none
 
 stages:
