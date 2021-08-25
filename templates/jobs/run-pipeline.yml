@@ -2,6 +2,9 @@ parameters:
 - name: pipelineName
   type: string
 
+variables:
+- group: pat-vq
+
 jobs:
 - job: run_pipeline
   displayName: 'Run pipeline: "${{ parameters.pipelineName }}"'
@@ -9,7 +12,7 @@ jobs:
   steps:
   - checkout: self
 
-  - bash: echo $(System.AccessToken) | az devops login
+  - bash: echo $(pat) | az devops login
     displayName: Login to devops
   
   - template: ../steps/get-pipeline-id-by-name.yml

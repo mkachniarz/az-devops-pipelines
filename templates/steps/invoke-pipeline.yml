@@ -5,9 +5,12 @@ parameters:
   type: boolean
   default: false
 
+variables:
+- group: pat-vq
+
 steps:
 - ${{ if eq(parameters.loggedInToDevops, false) }}:
-  - bash: echo $(System.AccessToken) | az devops login
+  - bash: echo $(pat) | az devops login
     displayName: Login to devops
 
 - bash: |
