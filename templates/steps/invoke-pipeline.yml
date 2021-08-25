@@ -17,7 +17,6 @@ steps:
 
 - bash: |
     echo param pipelineId: ${{ parameters.pipelineId }}
-    echo var pipelineId: $(pipelineId)
   displayName: echo pipelineId
 
 - bash: |
@@ -25,8 +24,8 @@ steps:
     --area pipelines \
     --resource runs \
     --organization https://dev.azure.com/maciejkachniarz0364/ \
-    --route-parameters project='az devops pipelines' pipelineId=$(pipelineId) \
+    --route-parameters project='az devops pipelines' pipelineId=16 \
     --http-method POST \
     --in-file body.json \
     --api-version=6.1-preview
-  displayName: 'Invoke pipeline $(pipelineId)'
+  displayName: 'Invoke pipeline ${{ parameters.pipelineId }}'
