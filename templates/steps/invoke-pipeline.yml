@@ -11,9 +11,8 @@ steps:
     displayName: Login to devops
 
 - bash: |
-    ls ../../
-    ls ../../pipelines/
-  displayName: Update body.json
+    ls $(Build.Repository.LocalPath)
+  displayName: ls 
     # cat ../../draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
 
 # - bash: |
