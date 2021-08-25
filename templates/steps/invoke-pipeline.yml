@@ -12,6 +12,7 @@ steps:
 
 - bash: |
     cat $(Build.Repository.LocalPath)/draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
+    cat body.json
   displayName: cat
 
 - bash: |
@@ -26,6 +27,6 @@ steps:
     --organization https://dev.azure.com/maciejkachniarz0364/ \
     --route-parameters project='az devops pipelines' pipelineId='16' \
     --http-method POST \
-    --in-file $(Build.Repository.LocalPath)/draft-jsons/base-body-for-invoke-pipeline-request.json \
+    --in-file body.json \
     --api-version=6.1-preview
   displayName: 'Invoke pipeline with pipeline id: ${{ parameters.pipelineId }}'
