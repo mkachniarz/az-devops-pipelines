@@ -16,6 +16,8 @@ jobs:
     parameters:
       pipelineName: ${{ parameters.pipelineName }}
       loggedInToDevops: true
+  
+  - bash: echo $(pipelineId)
 
   - template: ../steps/invoke-pipeline.yml
     parameters:
