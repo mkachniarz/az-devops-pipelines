@@ -30,7 +30,9 @@ parameters:
   type: stepList
   default:
     - script: echo Default step one from stepList_parameter
+      displayName: echo Run step from stepList parameter first
     - script: echo Default step two from stepList_parameter
+      displayName: echo Run step from stepList parameter second
 # - name: job_parameter
 #   type: job
 # - name: jobList_parameter
@@ -90,3 +92,7 @@ jobs:
   dependsOn: list_object_parameters
   steps:
   - ${{ parameters.step_parameter }}
+
+- job: stepList_parameter
+  dependsOn: step_parameter
+  steps: ${{ parameters.stepList_parameter }}
