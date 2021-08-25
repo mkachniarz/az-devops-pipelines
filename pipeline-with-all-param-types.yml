@@ -116,5 +116,4 @@ jobs:
 
 - ${{ parameters.job_parameter }}
 
-- ${{ each job in parameters.jobList_parameter }}
-  - ${{ job }}
+- ${{ parameters.jobList_parameter }}
