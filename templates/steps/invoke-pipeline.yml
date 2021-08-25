@@ -11,7 +11,7 @@ steps:
     displayName: Login to devops
 
 - bash: |
-    cat $(Build.Repository.LocalPath)/draft-jsons/base-body-for-invoke-pipeline-request.json
+    cat $(Build.Repository.LocalPath)/draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
   displayName: cat
 
 - bash: |
