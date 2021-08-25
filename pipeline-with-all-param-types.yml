@@ -57,7 +57,12 @@ parameters:
 - name: deploymentJob_parameter
   type: deployment
   default:
-    - deployment: deploymentJob_parameter
+    deployment: deployParameter
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo Default step from deploymentJob_parameter
 # - name: deploymentJobList_parameter
 #   type: deploymentList
 # - name: stage_parameter
