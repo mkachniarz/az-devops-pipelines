@@ -65,8 +65,25 @@ parameters:
         deploy:
           steps:
           - script: echo Default step from deploymentJob_parameter
-# - name: deploymentJobList_parameter
-#   type: deploymentList
+- name: deploymentJobList_parameter
+  type: deploymentList
+  default:
+    - deployment: deploymentJobList_parameter_one
+      dependsOn: deploymentJob_parameter
+      environment: DEV
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - script: echo Default step from deploymentJobList_parameter one
+    - deployment: deploymentJobList_parameter_two
+      dependsOn: deploymentJobList_parameter_one
+      environment: DEV
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - script: echo Default step from deploymentJobList_parameter two
 # - name: stage_parameter
 #   type: stage
 # - name: stageList_parameter
@@ -128,3 +145,5 @@ jobs:
 - ${{ parameters.jobList_parameter }}
 
 - ${{ parameters.deploymentJob_parameter }}
+
+- ${{ parameters.deploymentJobList_parameter }}
