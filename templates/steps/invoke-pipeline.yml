@@ -11,13 +11,12 @@ steps:
     displayName: Login to devops
 
 - bash: |
-    cat $(Build.Repository.LocalPath)/draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
-    cat body.json
-  displayName: cat
+    jq '.templateParameters += {"string_parameter": "string parameter updated"}' $(Build.Repository.LocalPath)/draft-jsons/base-body-for-invoke-pipeline-request.json > body.json
+  displayName: Set string_parameter for invoked pipeline
 
 - bash: |
-    echo param pipelineId: ${{ parameters.pipelineId }}
-  displayName: echo pipelineId
+    cat body.json
+  displayName: cat
 
 - bash: |
     az devops invoke \
